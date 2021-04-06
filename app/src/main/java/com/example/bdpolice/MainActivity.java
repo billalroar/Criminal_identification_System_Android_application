@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         adapterspring = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menutext);
         spinnermenu.setAdapter(adapterspring);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            toolbar.setTitle("BD Police");
+            toolbar.setTitle("Criminal Identification");
             toolbar.setSubtitle("(Discipline Security Progress)");
 
         }
@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("value", spinnertext);
         bundle.putString("id", id);
         // set Fragmentclass Arguments
+//        update project
         selectedFragment = new HomeFragment();
         selectedFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     case 0:
                         if(bitmap != null){
+                            id="";
                             Urllink=UrlAddress.ROOT_URI2+"Criminal";
                             getid();
                             spinnertext = spinnermenu.getSelectedItem().toString();
@@ -119,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         if(bitmap != null){
+                            id="";
                             Urllink=UrlAddress.ROOT_URI2+"Missing";
                             getid();
                             spinnertext = spinnermenu.getSelectedItem().toString();
@@ -134,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         if(bitmap != null){
+                            id="";
                             Urllink=UrlAddress.ROOT_URI2+"Person";
                             getid();
                             spinnertext = spinnermenu.getSelectedItem().toString();
@@ -149,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         if(bitmap != null){
+                            id="";
                             Urllink=UrlAddress.ROOT_URI2+"Officer";
                             getid();
                             spinnertext = spinnermenu.getSelectedItem().toString();
@@ -199,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
     {
 //        Toast.makeText(
 //                getApplicationContext(),
-//                Urllink,
+//                "get id",
 //                Toast.LENGTH_LONG
 //        ).show();
         StringRequest stringRequest = new StringRequest(
@@ -210,6 +215,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject obj = new JSONObject(response);
+//                            Toast.makeText(
+//                                    getApplicationContext(),
+//                                    "main : under try",
+//                                    Toast.LENGTH_LONG
+//                            ).show();
                             if(!obj.getBoolean("error")){
                                 spinnertext = spinnermenu.getSelectedItem().toString();
                                 Bundle bundle4 = new Bundle();
@@ -217,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                                 id=obj.getString("result");
 //                                Toast.makeText(
 //                                        getApplicationContext(),
-//                                        id,
+//                                        "main :"+id,
 //                                        Toast.LENGTH_LONG
 //                                ).show();
                                 bundle4.putString("id", id);

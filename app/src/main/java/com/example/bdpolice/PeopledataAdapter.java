@@ -77,7 +77,7 @@ public class PeopledataAdapter extends RecyclerView.Adapter<PeopledataAdapter.Pr
                 if (peopledata.getValue() == "Officer")
                 {
                     Intent i = new Intent(mCtx,empolyeeActivity.class);
-                    i.putExtra("id", peopledata.getSerial());
+                    i.putExtra("id", peopledata.getId());
                     mCtx.startActivity(i);
                 }
 

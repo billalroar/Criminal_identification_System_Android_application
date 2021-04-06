@@ -42,8 +42,8 @@ public class HomeFragment extends Fragment {
     private TextView internet_text;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
-    String value;
-    String id;
+    String value="";
+    String id="";
     //this is the JSON Data URL
     //make sure you are using the correct ip else it will not work
     String URL_PRODUCTS = "";
@@ -181,13 +181,13 @@ public class HomeFragment extends Fragment {
         else {
             internet_text.setVisibility(View.INVISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
-            if (id!="UnKnown" && id!="")
+            if (!id.equals("UnKnown") && id != null && !id.isEmpty())
             {
                 loadrecycleview();
             }
-            if (id=="UnKnown")
+            if (id.equals("UnKnown"))
             {
-                Toast.makeText(getActivity(), "ID not found",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "No Data found",Toast.LENGTH_LONG).show();
             }
 
         }

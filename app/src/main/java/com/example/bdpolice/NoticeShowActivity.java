@@ -48,7 +48,7 @@ public class NoticeShowActivity extends AppCompatActivity {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
-            toolbar.setTitle("BD Police");
+            toolbar.setTitle("Criminal Identification");
             toolbar.setSubtitle("(Discipline Security Progress)");
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
